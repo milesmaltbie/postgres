@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "datlascluster-cf33"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "datlascluster-cf33"
+  template:
+    metadata:
+      labels:
+        app: "datlascluster-cf33"
+    spec:
+      containers:
+        - name: "datlascluster-cf33"
+          image: "datlascontainers.azurecr.io/datlascluster"
+          ports:
+          - containerPort: 5432
